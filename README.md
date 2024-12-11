@@ -1,93 +1,66 @@
-# Cat Chatbot Powered by OpenAI & Azure
+# Cat Chatbot with Fun Facts
 
-This is a fun and interactive chatbot that answers questions about cats from a cat's perspective, integrating OpenAI's GPT-4 model via Azure, and providing random cat facts fetched from an external API.
+This project is a chatbot that combines the power of OpenAI's GPT-4 and the Cat Facts API to provide fun and informative answers to user queries about cats. The chatbot enriches its responses by integrating random, interesting cat facts.
 
 ## Features
 
-- Chat with a cat who loves to share fun and interesting cat facts.
-- Every response is influenced by a random cat fact fetched from the Cat Fact API.
-- Powered by OpenAI's GPT-4 model through Azure OpenAI API.
-- Continuous interaction loop that stops only when the user types 'exit'.
+- **Cat Facts**: The bot fetches random fun and interesting facts about cats using the Cat Facts API.
+- **Chatbot**: Powered by OpenAI's GPT-4, the chatbot answers user queries about cats with relevant information, enhanced by cat facts.
+- **Cat-themed Responses**: The chatbot responds with a personality that aligns with a fun and informative cat theme.
 
-## Requirements
+## Prerequisites
 
-To run this project, you'll need:
+Before running this project, ensure you have the following:
 
-- Python 3.x
-- An Azure OpenAI subscription (to access GPT-4)
-- An internet connection for fetching cat facts
+- **Python 3.x** installed.
+- **OpenAI API** access (specifically Azure OpenAI).
+- **Azure Key and Endpoint** (you will need to configure these in your environment variables).
 
 ## Installation
 
-1. Clone this repository to your local machine:
+1. **Clone the repository**:
 
    ```
-   bashCopy codegit clone https://github.com/yourusername/cat-chatbot.git
+   git clone https://github.com/yourusername/cat-chatbot.git
    cd cat-chatbot
    ```
 
-2. Create a virtual environment (optional but recommended):
-
-   ```
-   bashCopy codepython -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   ```
-
-3. Install required dependencies:
+2. **Install required Python packages**:
 
    ```
    pip install -r requirements.txt
    ```
+
+3. **Set up environment variables**:
+
+   Create a `.env` file or set the following environment variables:
+
+   - `AZURE_KEY`: Your Azure OpenAI API key.
+   - `AZURE_ENDPOINT`: The endpoint for Azure OpenAI.
+
+   Example of `.env` file:
+
+   ```
+   bashCopy codeAZURE_KEY=your-azure-api-key
+   AZURE_ENDPOINT=your-azure-endpoint
+   ```
+
+4. **Run the script**:
+
+   After setting up the environment, you can run the Python script to interact with the chatbot.
+
+   ```
+   python chatbot.py
+   ```
+
+
+
+## Example Usage
+
+1. The bot answers questions related to cats, integrating interesting facts into its responses.
+
+2. Example interaction:
+
+   ![](https://cdn.discordapp.com/attachments/1309100112504688650/1316357436101099520/Screenshot_2024-12-11_104447.png?ex=675ac0e5&is=67596f65&hm=fa5997241d4ca0fffef3e395bb4d8c10576335f955746d09aa9dffcab731066e&)
+
    
-   The `requirements.txt` should include:
-   
-   ```
-   plaintextCopy codeopenai
-   requests
-   ```
-   
-4. Set up your environment variables for Azure API access:
-
-   - `AZURE_KEY`: Your Azure API key for OpenAI GPT.
-   - `AZURE_ENDPOINT`: Your Azure OpenAI endpoint URL.
-
-   On Linux/macOS:
-
-   ```
-   bashCopy codeexport AZURE_KEY="your_azure_api_key"
-   export AZURE_ENDPOINT="your_azure_endpoint"
-   ```
-
-   On Windows (in Command Prompt):
-
-   ```
-   bashCopy codeset AZURE_KEY=your_azure_api_key
-   set AZURE_ENDPOINT=your_azure_endpoint
-   ```
-
-## Usage
-
-1. Run the script to start chatting with the cat:
-
-   ```
-   python cat_chatbot.py
-   ```
-   
-2. Ask the chatbot anything about cats, or type 'exit' to quit the conversation.
-
-3. The bot will respond with a cat's perspective and include a fun cat fact in its answers.
-
-   Example:
-
-   ```
-   vbnetCopy codeAsk me anything about cats (or type 'exit' to quit): What's your favorite food?
-   (=①ω①=): I love tuna! Here's an interesting cat fact: Cats can make over 100 different sounds!
-   ```
-
-![](https://cdn.discordapp.com/attachments/1309100112504688650/1311281849804263445/Screenshot_2024-11-27_010405.png?ex=674849e3&is=6746f863&hm=7d779acbf7e5b1d440005f2fde356afbc01adf9078dc4210a61dd128ba975675&)
-
-## Code Overview
-
-- **`get_cat_fact()`**: Fetches a random cat fact from the Cat Fact API.
-- **`generate_openai_response(user_question, cat_fact)`**: Generates a response from OpenAI's GPT-4 model, incorporating the random cat fact.
-- **Main Loop**: Continuously prompts the user for input and responds until 'exit' is typed.
