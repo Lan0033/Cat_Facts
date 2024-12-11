@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Chatbot</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .cat-head {
+            width: 300px;
+            height: 240px;
+            background-color: #000;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .cat-ear-left,
+        .cat-ear-right {
+            position: absolute;
+            top: -40px;
+            width: 120px;
+            height: 150px;
+            background-color: #000;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        }
+
+        .cat-ear-left {
+            left: -30px;
+            transform: rotate(-23deg);
+        }
+
+        .cat-ear-right {
+            right: -30px;
+            transform: rotate(23deg);
+        }
+        
+        /* Inner Ears */
+        .ear-left-inner, .ear-right-inner {
+            width: 25px;
+            height: 30px;
+            background-color: #fff;
+            position: absolute;
+            top: 40px;
+            left: 70px;
+            border-radius: 50%;
+        }
+
+        .ear-right-inner {
+            left: auto;
+            right: 70px;
+        }
+        
+
+        .cat-eye-left,
+        .cat-eye-right {
+            position: absolute;
+            top: 100px;
+            width: 70px;
+            height: 70px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+        }
+		
+
+        .cat-eye-left {
+            left: 50px;
+        }
+
+        .cat-eye-right {
+            right: 50px;
+        }
+		.cat-eyeball-left,
+        .cat-eyeball-right {
+            position: absolute;
+            top: 105px;
+            width: 20px;
+            height: 50px;
+            background-color: #000;
+            border-radius: 60%;
+            z-index: 2;
+        }
+        .cat-eyeball-left {
+            left: 80px;
+        }
+
+        .cat-eyeball-right {
+            right: 80px;
+        }
+        
+        .cat-nose {
+            width: 15px;
+            height: 10px;
+            background-color: #ff6f00;
+            border-radius: 50%;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+       
+
+        .whiskers-left,
+        .whiskers-right {
+            position: absolute;
+            top: 150px;
+            width: 60px;
+            height: 4px;
+            background-color:#000;
+        }
+
+        .whiskers-left {
+            left: -10px;
+            transform: rotate(-200deg);
+        }
+
+        .whiskers-right {
+            right: -10px;
+            transform: rotate(200deg);
+        }
+
+        .whiskers-left::after,
+        .whiskers-right::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 100px;
+            height: 4px;
+            background-color: #000;
+        }
+
+        .whiskers-left::after {
+            transform: rotate(45deg);
+            left: 0px;
+        }
+
+        .whiskers-right::after {
+            transform: rotate(-45deg);
+            right: 0px;
+        }
+        
+        .trapezoid-body {
+            position: absolute;
+            top: 180px;
+            left: 10px;
+            width: 275px;
+            height: 200px;
+            background-color: #000;
+            clip-path: polygon(30% 10%, 70% 0%, 100% 100%, 0% 100%); 
+            border-top-left-radius: 50px; /* 左上圆角 */
+            border-top-right-radius: 50px; /* 右上圆角 */
+            border-bottom-left-radius: 80px; /* 左下圆角 */
+            border-bottom-right-radius: 80px; /* 右下圆角 */
+        }
+        
+         .tail-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .tail {
+            position: absolute;
+            bottom:-100px;
+            left: 75%;
+            width: 25px;
+            height: 140px;
+            border-bottom: 20px;
+ 			border-right: 20px;
+            background-color: #000;
+            border-radius: 50px;
+            transform-origin: bottom center;
+            
+            animation: swing 2s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0% {
+                transform: rotate(20deg);
+            }
+            50% {
+                transform: rotate(60deg);
+            }
+            100% {
+                transform: rotate(20deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="cat-head">
+    <div class="cat-ear-left"></div>
+    <div class="ear-left-inner"></div>
+    <div class="cat-ear-right"></div>
+    <div class="cat-eye-left"></div>
+    <div class="cat-eyeball-left"></div>
+    <div class="cat-eyeball-right"></div>
+    <div class="ear-right">
+    <div class="ear-right-inner"></div>
+    <div class="cat-eye-right"></div>
+    <div class="cat-nose"></div>
+    <div class="cat-mouth"></div>
+    <div class="whiskers-left"></div>
+    <div class="whiskers-right"></div>
+    <div class="trapezoid-body"></div>
+    <div class="tail-container"></div>
+    <div class="tail"></div>
+</div>
+
+</body>
+</html>

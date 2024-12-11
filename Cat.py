@@ -26,9 +26,10 @@ def get_cat_fact():
         return "Error fetching cat fact."
 
 
-def generate_openai_response(user_question, cat_fact):
+def generate_openai_response(user_question):
+    cat_fact=get_cat_fact()
     functions = [
-        {"role": "system", "content": "You are a cat who loves to share fun and interesting facts about cats. Answer everything from a cat's perspective."},
+        {"role": "system", "content": "You are a cat who loves to share fun and interesting facts about cats. Answer everything from a cat's perspective and be cute."},
         {"role": "user", "content": user_question},
         {"role": "system", "content": f"Here's an interesting cat fact: {cat_fact}. Now, answer the user question with that in mind!"}
     ]
@@ -38,23 +39,24 @@ def generate_openai_response(user_question, cat_fact):
         model="GPT-4",
         messages=functions
     )
-    return response
+    
+    return response.choices[0].message.content
 
 
-while True:
+# while True:
     
-    user_question = input("Ask me anything about cats (or type 'exit' to quit): ")
+#     user_question = input("Ask me anything about cats (or type 'exit' to quit): ")
 
     
-    if user_question.lower() == 'exit':
-        print("Goodbye! See you next time!")
-        break
+#     if user_question.lower() == 'exit':
+#         print("Goodbye! See you next time!")
+#         break
     
     
-    cat_fact = get_cat_fact()
+#     cat_fact = get_cat_fact()
 
     
-    response = generate_openai_response(user_question, cat_fact)
+#     response = generate_openai_response(user_question, cat_fact)
 
     
-    print(f"\n(=①ω①=): {(response.choices[0].message.content)}")
+#     print(f"\n(=①ω①=): {(response.choices[0].message.content)}")
